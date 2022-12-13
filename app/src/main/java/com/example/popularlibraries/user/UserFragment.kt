@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.popularlibraries.databinding.FragmentUserListBinding
 import com.example.popularlibraries.GeekBrainsApp
@@ -25,7 +26,9 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
 
     private lateinit var viewBinding: FragmentUserListBinding
 
-    private val adapter = UserAdapter()
+    private val adapter = UserAdapter({
+        Toast.makeText(requireContext(), it.login, Toast.LENGTH_SHORT).show()
+    })
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(GithubRepositoryImpl(), GeekBrainsApp.instance.router)
     }
