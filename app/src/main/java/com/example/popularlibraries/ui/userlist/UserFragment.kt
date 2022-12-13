@@ -27,7 +27,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
     private lateinit var viewBinding: FragmentUserListBinding
 
     private val adapter = UserAdapter({
-        Toast.makeText(requireContext(), it.login, Toast.LENGTH_SHORT).show()
+        presenter.showUserInfo(it)
     })
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(GithubRepositoryImpl(), GeekBrainsApp.instance.router)
