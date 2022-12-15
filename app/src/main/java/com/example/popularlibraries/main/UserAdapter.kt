@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularlibraries.R
+import com.example.popularlibraries.model.RecyclerItemClick
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 
-class UserAdapter() :
+class UserAdapter( val onItemSelect: RecyclerItemClick) :
     RecyclerView.Adapter<GithubUserViewHolder>() {
 
      var users: List<GithubUser> = emptyList()
@@ -25,7 +26,7 @@ class UserAdapter() :
     }
 
     override fun onBindViewHolder(holder: GithubUserViewHolder, position: Int) {
-        holder.bind(users[position])
+        holder.bind(users[position],onItemSelect)
     }
 
     override fun getItemCount() = users.size
@@ -35,7 +36,10 @@ class GithubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val tvLogin by lazy { itemView.findViewById<TextView>(R.id.tvUserLogin) }
 
-    fun bind(item: GithubUser) = with(item) {
+    fun bind(item: GithubUser,onItemSelect: RecyclerItemClick) = with(item) {
+        tvLogin.setOnClickListener{
+            onItemSelect.onItemClick(this)
+        }
         tvLogin.text = login
     }
 }
