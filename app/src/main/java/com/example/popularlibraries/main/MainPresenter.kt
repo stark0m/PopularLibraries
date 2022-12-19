@@ -1,6 +1,7 @@
 package com.mirkhusainov.geekbrainscourse.main
 
 import com.github.terrakok.cicerone.Router
+import com.mirkhusainov.geekbrainscourse.core.nav.ImageLoading
 import com.mirkhusainov.geekbrainscourse.core.nav.UserInformationScreen
 import com.mirkhusainov.geekbrainscourse.core.nav.UsersScreen
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
@@ -12,7 +13,7 @@ class MainPresenter(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        router.replaceScreen(UsersScreen)
+        router.replaceScreen(ImageLoading)
     }
 
     fun onBackPressed() {
