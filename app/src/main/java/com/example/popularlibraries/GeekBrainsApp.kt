@@ -15,6 +15,7 @@ class GeekBrainsApp : Application() {
     val navigationHolder = cicerone.getNavigatorHolder()
     val router = cicerone.router
 
+
     override fun onCreate() {
         super.onCreate()
         instance = this
