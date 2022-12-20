@@ -8,4 +8,5 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface RxExampleVievInterface :MvpView{
     fun showImage(pathName:Drawable)
+    fun showJPGToPNGconvertationInfo(it: Boolean)
 }
