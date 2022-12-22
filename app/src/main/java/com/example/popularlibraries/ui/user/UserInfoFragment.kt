@@ -11,7 +11,7 @@ import com.mirkhusainov.geekbrainscourse.model.GithubUser
 
 class UserInfoFragment() : Fragment() {
 
-    private var userInfo: GithubUser = GithubUser("Start")
+    private var userInfo: GithubUser = GithubUser(1,"Start","")
     private lateinit var binding: FragmentUserInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
