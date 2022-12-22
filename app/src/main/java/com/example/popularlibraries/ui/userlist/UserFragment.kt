@@ -1,10 +1,10 @@
 package com.mirkhusainov.geekbrainscourse.user
 
+import UserPresenter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.popularlibraries.databinding.FragmentUserListBinding
 import com.example.popularlibraries.GeekBrainsApp
@@ -14,7 +14,6 @@ import com.mirkhusainov.geekbrainscourse.core.network.NetworkProvider
 
 import com.mirkhusainov.geekbrainscourse.main.UserAdapter
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
-import com.mirkhusainov.geekbrainscourse.repository.impl.GithubRepositoryImpl
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -32,7 +31,10 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
         presenter.showUserInfo(it)
     })
     private val presenter: UserPresenter by moxyPresenter {
-        UserPresenter(GithubRepositoryRetrofitImpl(NetworkProvider.usersApi), GeekBrainsApp.instance.router)
+        UserPresenter(
+            GithubRepositoryRetrofitImpl(NetworkProvider.usersApi),
+            GeekBrainsApp.instance.router
+        )
     }
 
     override fun onCreateView(

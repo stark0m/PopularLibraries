@@ -1,10 +1,10 @@
-package com.mirkhusainov.geekbrainscourse.user
 
-import com.example.popularlibraries.repository.retrofitimpl.GithubRepositoryRetrofitImpl
+
 import com.github.terrakok.cicerone.Router
 import com.mirkhusainov.geekbrainscourse.core.nav.UserInformationScreen
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import com.mirkhusainov.geekbrainscourse.repository.GithubRepository
+import com.mirkhusainov.geekbrainscourse.user.UserView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import moxy.MvpPresenter
@@ -12,6 +12,7 @@ import moxy.MvpPresenter
 class UserPresenter(
     private val repository: GithubRepository,
     private val router: Router
+
 ) : MvpPresenter<UserView>() {
 
     lateinit var userToShow:GithubUser
@@ -35,7 +36,6 @@ class UserPresenter(
     }
 
     fun showUserInfo(user: GithubUser){
-        userToShow = user
         router.navigateTo(UserInformationScreen(user))
     }
 }
