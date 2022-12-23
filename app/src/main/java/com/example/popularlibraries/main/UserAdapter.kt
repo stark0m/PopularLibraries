@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.popularlibraries.R
+import com.example.popularlibraries.databinding.ItemUserBinding
 import com.example.popularlibraries.model.RecyclerItemClick
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
+
 
 class UserAdapter( val onItemSelect: RecyclerItemClick) :
     RecyclerView.Adapter<GithubUserViewHolder>() {
@@ -33,7 +36,7 @@ class UserAdapter( val onItemSelect: RecyclerItemClick) :
 }
 
 class GithubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+    private val binding = ItemUserBinding.bind(itemView)
     private val tvLogin by lazy { itemView.findViewById<TextView>(R.id.tvUserLogin) }
 
     fun bind(item: GithubUser,onItemSelect: RecyclerItemClick) = with(item) {
@@ -41,5 +44,6 @@ class GithubUserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             onItemSelect.onItemClick(this)
         }
         tvLogin.text = login
+        binding.avatarImageView.load(avatarUrl)
     }
 }

@@ -19,7 +19,7 @@ object ImageLoading : FragmentScreen {
     }
 }
 
-class UserInformationScreen(val user: GithubUser) : FragmentScreen {
+data class UserInformationScreen(val user: GithubUser) : FragmentScreen {
     override fun createFragment(factory: FragmentFactory): Fragment {
         return UserInfoFragment.newInstance(user)
     }
