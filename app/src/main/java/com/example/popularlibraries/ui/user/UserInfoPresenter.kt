@@ -1,5 +1,6 @@
 import com.example.popularlibraries.ui.user.UserInfoView
 import com.github.terrakok.cicerone.Router
+import com.mirkhusainov.geekbrainscourse.model.GithubRepo
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import com.mirkhusainov.geekbrainscourse.repository.GithubUserRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -16,14 +17,18 @@ class UserInfoPresenter(
         return true
     }
 
-    fun showUserInfoPresenterCommand(){
+    fun onClickGitRepository(item: GithubRepo) {
+        view.showRepositoryForksInfo(item)
+    }
+
+    fun showUserInfoPresenterCommand() {
         view.showLoading()
         view.showUserInfo(userToShow)
         repository.getUserRepositoryList(userToShow.login)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {repoList->
+                { repoList ->
                     view.showRepoList(repoList)
                     view.hideLoading()
                 },

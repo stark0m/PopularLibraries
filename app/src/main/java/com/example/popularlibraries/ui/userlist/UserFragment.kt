@@ -27,9 +27,9 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
 
     private lateinit var viewBinding: FragmentUserListBinding
 
-    private val adapter = UserAdapter({
+    private val adapter = UserAdapter {
         presenter.showUserInfo(it)
-    })
+    }
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(
             GithubRepositoryRetrofitImpl(NetworkProvider.usersApi),

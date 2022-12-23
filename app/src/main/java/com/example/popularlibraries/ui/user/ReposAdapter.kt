@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.popularlibraries.databinding.ItemRepoBinding
 import com.mirkhusainov.geekbrainscourse.model.GithubRepo
 
-typealias OnRepoClickListener = (id: Long) -> Unit
+typealias OnRepoClickListener = (item: GithubRepo) -> Unit
 
-class ReposAdapter (
+class ReposAdapter(
     private val onUserClickListener: OnRepoClickListener
 ) : RecyclerView.Adapter<GithubRepoViewHolder>() {
 
@@ -42,7 +42,7 @@ class GithubRepoViewHolder(
     fun bind(item: GithubRepo) = with(binding) {
         tvRepoName.text = item.name
         root.setOnClickListener {
-            onUserClickListener.invoke(item.id)
+            onUserClickListener.invoke(item)
         }
     }
 }

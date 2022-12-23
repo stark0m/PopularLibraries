@@ -10,8 +10,9 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface UserInfoView : MvpView {
-    fun showUserInfo(user:GithubUser)
-    fun showRepoList(list:List<GithubRepo>)
+    fun showUserInfo(user: GithubUser)
+    fun showRepoList(list: List<GithubRepo>)
     fun showLoading()
     fun hideLoading()
+    fun showRepositoryForksInfo(item: GithubRepo)
 }

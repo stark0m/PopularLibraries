@@ -1,5 +1,3 @@
-
-
 import com.github.terrakok.cicerone.Router
 import com.mirkhusainov.geekbrainscourse.core.nav.UserInformationScreen
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
@@ -15,8 +13,8 @@ class UserPresenter(
 
 ) : MvpPresenter<UserView>() {
 
-    lateinit var userToShow:GithubUser
-    private set
+    lateinit var userToShow: GithubUser
+        private set
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -24,9 +22,10 @@ class UserPresenter(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-            {userlist->
-                viewState.initList(userlist)},
-            {})
+                { userlist ->
+                    viewState.initList(userlist)
+                },
+                {})
 
     }
 
@@ -35,7 +34,7 @@ class UserPresenter(
         return true
     }
 
-    fun showUserInfo(user: GithubUser){
+    fun showUserInfo(user: GithubUser) {
         router.navigateTo(UserInformationScreen(user))
     }
 }
