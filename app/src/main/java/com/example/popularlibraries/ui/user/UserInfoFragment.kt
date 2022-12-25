@@ -6,21 +6,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import com.example.popularlibraries.GeekBrainsApp
 import com.example.popularlibraries.databinding.FragmentUserInfoBinding
 import com.example.popularlibraries.repository.GithubUserRepositoryRetrofitImpl
 import com.example.popularlibraries.utils.makeGone
 import com.example.popularlibraries.utils.makeVisible
-import com.mirkhusainov.geekbrainscourse.core.OnBackPressedListener
 import com.mirkhusainov.geekbrainscourse.core.network.NetworkProvider
 import com.mirkhusainov.geekbrainscourse.model.GithubRepo
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import moxy.MvpAppCompatFragment
 
-class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView, OnBackPressedListener {
+class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView {
 
     private val ARG_LOGIN = "GitUSER"
     private var userInfo: GithubUser = GithubUser(1, "Start", "")
@@ -94,6 +91,4 @@ class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView, OnBackPressedLi
         builder.setMessage("Has total ${item.forks} forks")
         builder.show()
     }
-
-    override fun onBackPressed() = userinfoPresenter.onBackPressed()
 }
