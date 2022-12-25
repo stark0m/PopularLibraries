@@ -1,8 +1,4 @@
 import com.github.terrakok.cicerone.Router
-import com.mirkhusainov.geekbrainscourse.core.nav.UserInformationScreen
-import com.mirkhusainov.geekbrainscourse.model.GithubUser
-import com.mirkhusainov.geekbrainscourse.repository.GithubRepository
-import com.mirkhusainov.geekbrainscourse.user.UserView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import moxy.MvpPresenter

@@ -1,8 +1,9 @@
-package com.mirkhusainov.geekbrainscourse.core.network
+
 
 
 import com.example.popularlibraries.utils.GIT_API_URL
 import com.google.gson.GsonBuilder
+import com.mirkhusainov.geekbrainscourse.core.network.UsersApi
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

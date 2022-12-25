@@ -1,4 +1,3 @@
-package com.mirkhusainov.geekbrainscourse.core.nav
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory

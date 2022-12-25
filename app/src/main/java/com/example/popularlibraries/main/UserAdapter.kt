@@ -1,4 +1,3 @@
-package com.mirkhusainov.geekbrainscourse.main
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import coil.load
 import com.example.popularlibraries.R
 import com.example.popularlibraries.databinding.ItemUserBinding
 import com.example.popularlibraries.model.RecyclerItemClick
-import com.mirkhusainov.geekbrainscourse.model.GithubUser
 
 
 class UserAdapter( val onItemSelect: RecyclerItemClick) :

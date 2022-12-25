@@ -1,7 +1,3 @@
-package com.mirkhusainov.geekbrainscourse.core.mapper
-
-import com.mirkhusainov.geekbrainscourse.core.network.RepoDto
-import com.mirkhusainov.geekbrainscourse.model.GithubRepo
 
 object ReposMapper {
 

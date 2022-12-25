@@ -1,5 +1,3 @@
-package com.mirkhusainov.geekbrainscourse.user
-
 
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import moxy.MvpView

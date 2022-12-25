@@ -1,10 +1,6 @@
-package com.mirkhusainov.geekbrainscourse.main
+
 
 import com.github.terrakok.cicerone.Router
-import com.mirkhusainov.geekbrainscourse.core.nav.ImageLoading
-import com.mirkhusainov.geekbrainscourse.core.nav.UserInformationScreen
-import com.mirkhusainov.geekbrainscourse.core.nav.UsersScreen
-import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import moxy.MvpPresenter
 
 class MainPresenter(

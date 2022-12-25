@@ -1,4 +1,4 @@
-package com.mirkhusainov.geekbrainscourse.main
+
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy

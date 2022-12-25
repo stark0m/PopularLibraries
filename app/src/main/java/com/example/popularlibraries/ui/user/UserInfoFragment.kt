@@ -20,7 +20,7 @@ import com.mirkhusainov.geekbrainscourse.model.GithubRepo
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
 import moxy.MvpAppCompatFragment
 
-class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView, OnBackPressedListener {
+class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView {
 
     private val ARG_LOGIN = "GitUSER"
     private var userInfo: GithubUser = GithubUser(1, "Start", "")
@@ -95,5 +95,5 @@ class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView, OnBackPressedLi
         builder.show()
     }
 
-    override fun onBackPressed() = userinfoPresenter.onBackPressed()
+
 }

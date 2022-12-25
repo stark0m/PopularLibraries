@@ -1,4 +1,4 @@
-package com.mirkhusainov.geekbrainscourse.model
+
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
