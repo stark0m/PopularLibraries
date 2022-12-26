@@ -34,6 +34,7 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
         UserPresenter(
             GithubRepositoryRetrofitImpl(
                 NetworkProvider.usersApi,
+                GeekBrainsApp.instance.database.userDao(),
                 GeekBrainsApp.instance.getConnectSingle()
             ),
             GeekBrainsApp.instance.router
