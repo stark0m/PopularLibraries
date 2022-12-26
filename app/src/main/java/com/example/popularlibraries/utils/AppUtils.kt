@@ -1,5 +1,7 @@
 package com.example.popularlibraries.utils
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.view.View
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -25,4 +27,13 @@ fun <T> Single<T>.doCompletableIf(
     } else {
         this
     }
+}
+
+
+fun isOnline(context: Context): Boolean {
+
+    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val netInfo = cm.getActiveNetworkInfo();
+
+    return (netInfo != null && netInfo.isConnected());
 }

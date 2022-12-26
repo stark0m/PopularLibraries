@@ -1,6 +1,8 @@
 package com.example.popularlibraries.repository.retrofitimpl
 
+import com.example.popularlibraries.GeekBrainsApp
 import com.example.popularlibraries.utils.doCompletableIf
+import com.example.popularlibraries.utils.isOnline
 import com.mirkhusainov.geekbrainscourse.core.mapper.UserMapper
 import com.mirkhusainov.geekbrainscourse.core.network.UsersApi
 import com.mirkhusainov.geekbrainscourse.model.GithubUser
@@ -12,10 +14,11 @@ class GithubRepositoryRetrofitImpl constructor(
     private val networkStatus: Single<Boolean>
 ) : GithubRepository {
     override fun getUsers(): Single<List<GithubUser>> {
-
-
-        val result = usersApi.getAllUsers()
-            .map { it.map(UserMapper::mapToEntity) }
-        return result
+        return when (isOnline(GeekBrainsApp.instance.applicationContext)){
+            true -> usersApi.getAllUsers()
+                .map { it.map(UserMapper::mapToEntity) }
+            false -> usersApi.getAllUsers()
+                .map { it.map(UserMapper::mapToEntity) }
+        }
     }
 }
