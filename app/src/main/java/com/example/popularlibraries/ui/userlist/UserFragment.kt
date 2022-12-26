@@ -32,7 +32,11 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener {
     }
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(
-            GithubRepositoryRetrofitImpl(NetworkProvider.usersApi),
+            GithubRepositoryRetrofitImpl(
+                NetworkProvider.usersApi,
+                GeekBrainsApp.instance.database.userDao(),
+                GeekBrainsApp.instance.getConnectSingle()
+            ),
             GeekBrainsApp.instance.router
         )
     }
