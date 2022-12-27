@@ -16,7 +16,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val presenter by moxyPresenter { MainPresenter(GeekBrainsApp.instance.router) }
+    private val presenter by moxyPresenter { GeekBrainsApp.instance.presenter}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
