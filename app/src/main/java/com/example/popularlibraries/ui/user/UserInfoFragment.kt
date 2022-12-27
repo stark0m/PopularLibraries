@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
+import com.example.popularlibraries.GeekBrainsApp
 import com.example.popularlibraries.databinding.FragmentUserInfoBinding
 import com.example.popularlibraries.repository.GithubUserRepositoryRetrofitImpl
 import com.example.popularlibraries.utils.makeGone
@@ -41,7 +42,8 @@ class UserInfoFragment() : MvpAppCompatFragment(), UserInfoView {
         super.onViewCreated(view, savedInstanceState)
         userInfo = arguments?.getParcelable<GithubUser>(ARG_LOGIN) ?: GithubUser(1, "Start", "")
         userinfoPresenter = UserInfoPresenter(
-            GithubUserRepositoryRetrofitImpl(NetworkProvider.usersApi),
+            GeekBrainsApp.instance.appComponent.getUsersRepo(),
+//            GithubUserRepositoryRetrofitImpl(NetworkProvider.usersApi),
             this,
             userInfo
         )
